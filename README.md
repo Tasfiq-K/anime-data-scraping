@@ -1,1 +1,0 @@
-# anime-data-scraping
