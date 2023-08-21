@@ -1,4 +1,22 @@
-def get_categories(f_name):
+import os
+import re
+import time
+import pickle
+import random
+import argparse
+import pandas as pd
+from tqdm import tqdm
+
+from selenium.webdriver import Firefox
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import StaleElementReferenceException
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support import expected_conditions as EC
+
+def get_categories(f_name, pickle_dir='pickle_files'):
 
     """ This function downloads the category links from the given URL and saves the file file in a directory
         URL: "https://paperswithcode.com/methods"
@@ -40,7 +58,7 @@ def get_categories(f_name):
 
 
 
-def get_methods(categories, f_name, file_to_load=None):
+def get_methods(categories, f_name, file_to_load=None, pickle_dir='pickle_files') :
 
     """ This function collects the links listed in the categories collected using the get_categories function.
         loads the file if provided, else gets the returned list from the get_categories function
@@ -86,7 +104,7 @@ def get_methods(categories, f_name, file_to_load=None):
 
     return method_links
 
-def paperLink(method_links, file_name=None, dump_file='all_paper_links'):
+def paperLink(method_links, file_name=None, dump_file='all_paper_links', pickle_dir='pickle_files'):
 
     """ This function collects all the Urls of the paper and saves them in a file called 'all_paper_links (defualt)
         arguments:
