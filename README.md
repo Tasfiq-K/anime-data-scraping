@@ -73,7 +73,7 @@ The `papersWithCode_data.csv` is the generated dataset after the scraping. Which
 
 Finetuned a `distilrobera-base` model from HuggingFace Transformers using Fastai and Blurr. The model training notebook can be viewed [here](https://github.com/Tasfiq-K/from-paper-with-tasks/tree/main/notebooks/multilabel_text_classification.ipynb)
 
-Also, checkout other notebooks in the `notebooks` directory
+Also, checkout other notebooks in the [`notebooks`](https://github.com/Tasfiq-K/from-paper-with-tasks/tree/main/notebooks) directory.
 
 <h2 style=color:#fe5e21;>Model Compression & ONNX Inference</h2>
 
