@@ -65,24 +65,30 @@ In total, I scraped **34k+** paper abstracts and other informations.
 
 <h2 style=color:#fe5e21;>Data Processing</h2>
 
-Initially there were *640* different genres in the dataset. After some analysis, I found out *499* of them are rare (probably custom genres by users). So, I removed those genres and then I have *141* genres. After that, I removed the description without any genres resulting in *6,104* samples.
+Initially there were *2186* different tasks in the dataset. After some analysis, I found out *1926* of them are rare (They showed up less than 30 times in the dataset). So, I removed those tasks making the tasks count equals to *260*. After that, I removed the description without any tasks. I also removed duplicate rows and cases where there were no task(s) provided. So, the resulting dataset contained total of *16304* samples.
 
-## Model Training
+The `papersWithCode_data.csv` is the generated dataset after the scraping. Which can be found inside the [`csv_files`](https://github.com/Tasfiq-K/from-paper-with-tasks/tree/main/csv_files) directory
 
-Finetuned a `distilrobera-base` model from HuggingFace Transformers using Fastai and Blurr. The model training notebook can be viewed [here](https://github.com/msi1427/MultiLabel-Book-Genre-Classifier/blob/main/notebooks/multilabel_text_classification.ipynb)
+<h2 style=color:#fe5e21;>Modeling</h2>
 
-## Model Compression and ONNX Inference
+Finetuned a `distilrobera-base` model from HuggingFace Transformers using Fastai and Blurr. The model training notebook can be viewed [here](https://github.com/Tasfiq-K/from-paper-with-tasks/blob/main/notebooks/multilabel_text_classification.ipynb)
 
-The trained model has a memory of 300+MB. I compressed this model using ONNX quantization and brought it under 80MB. 
+Also, checkout other notebooks in the `notebooks` directory
 
-## Model Deployment
+<h2 style=color:#fe5e21;>Model Compression & ONNX Inference</h2>
 
-The compressed model is deployed to HuggingFace Spaces Gradio App. The implementation can be found in `deployment` folder or [here](https://huggingface.co/spaces/msideadman/multilabel-book-genre-classifier) 
+The trained model has a memory of **400+MB**. I compressed this model using ONNX quantization and brought it under **85MB**. 
 
-<!-- <img src = "deployment/gradio_app.PNG" width="800" height="400"> -->
+<h2 style=color:#fe5e21;>Deployment</h2>
 
-## Web Deployment
-Deployed a Flask App built to take descprition and show the genres as output. Check `flask ` branch. The website is live [here](https://multilabel-book-genre-classifier.onrender.com) 
+The compressed model is deployed to HuggingFace Spaces Gradio App. The implementation can be found in [`deployment`](https://github.com/Tasfiq-K/from-paper-with-tasks/tree/main/deployment) folder or [here](https://huggingface.co/spaces/g0blas/paper_task_suggestion) 
 
-<!-- <img src = "deployment/flask_app_home.PNG" width="800" height="400">
-<img src = "deployment/flask_app_results.PNG" width="800" height="200"> -->
+<img src = "deployment/hf_space.png" width="800" height="300">
+
+<h2 style=color:#fe5e21;>Web Deployment</h2>
+
+Deployed a Flask App built to take abstract and show the tasks of the paper as output. Check [`flask`](https://github.com/Tasfiq-K/from-paper-with-tasks/tree/flask) branch. The website is live [here](https://from-paper-with-tasks.onrender.com/) 
+
+<img src = "deployment/flask_app_render.png" width="800" height="300">
+
+*Background Image Credit: The image used as the background is not mine. It was taken from [here](https://wallpapersden.com/question-marks-figures-3d-wallpaper/1920x1080/)
