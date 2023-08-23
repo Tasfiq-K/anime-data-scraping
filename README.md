@@ -71,7 +71,7 @@ The `papersWithCode_data.csv` is the generated dataset after the scraping. Which
 
 <h2 style=color:#fe5e21;>Modeling</h2>
 
-Finetuned a `distilrobera-base` model from HuggingFace Transformers using Fastai and Blurr. The model training notebook can be viewed [here](https://github.com/Tasfiq-K/from-paper-with-tasks/blob/main/notebooks/multilabel_text_classification.ipynb)
+Finetuned a `distilrobera-base` model from HuggingFace Transformers using Fastai and Blurr. The model training notebook can be viewed [here](https://github.com/Tasfiq-K/from-paper-with-tasks/tree/main/notebooks/multilabel_text_classification.ipynb)
 
 Also, checkout other notebooks in the `notebooks` directory
 
